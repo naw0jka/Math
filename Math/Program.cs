@@ -8,15 +8,27 @@ namespace Math
 {
     class Program
     {
-        static string expression = "2+3+(3*(2 + 4 * 5 - 8/2))+8";
+        static string expression = "2+a+(3*(2 + 4 * 2 - 28/2))+8";
         static char[] operators = { '+', '-', '*', '/' };
 
         static void Main(string[] args)
         {
-            expression = expression.Replace(" ","");
-            // checking validation
-            
-            NewMethod();
+            expression = expression.Replace(" ", "");
+
+            if (expression.Any(e => !operators.Contains(e) || !char.IsDigit(e)))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You miss the key. Try one more time");
+                Console.ResetColor();
+            }
+            else
+            {
+                NewMethod();
+            }
+
+
+            Console.ReadKey();
+
 
         }
 
@@ -38,110 +50,123 @@ namespace Math
                     start = index + 1;
                 }
                 var inBrakets = expression.Substring(startIndex, (endIndex - startIndex + 1));
-                inBrakets = inBrakets.Replace("+-", "-");
-                inBrakets = inBrakets.Replace("--", "-");
+                //inBrakets = inBrakets.Replace("+-", "-");
+                //inBrakets = inBrakets.Replace("--", "-");
                 //what with '*-'
                 //what with '/-'
 
                 var withoutBrakets = inBrakets.Trim('(', ')');
-
                 var values = withoutBrakets.Split(operators);
                 var valuesAmount = values.Length;
 
-                var multiplicationIndex = withoutBrakets.IndexOf('*');
-                var divisionIndex = withoutBrakets.IndexOf('/');
-                var additionIndex = withoutBrakets.IndexOf('+');
-                var subtractionIndex = withoutBrakets.IndexOf('-');
-
-
-                var multiPreviousValueIndex = -2;
-                var multiPreviousValue = -1;
-                var multiSeparator = 1;
-
-                if (multiplicationIndex > -1)
-                {
-
-                    while (multiPreviousValueIndex < (multiplicationIndex - 1))
-                    {
-                        multiPreviousValue++;
-
-                        var number = values[multiPreviousValue].ToString().Length;
-                        multiPreviousValueIndex = multiPreviousValueIndex + number + multiSeparator;
-
-                    }
-                    int a = int.Parse(values[multiPreviousValue]);
-                    int b = int.Parse(values[multiPreviousValue+1]);
-                    var multiplication = a*b;
-
-                }
-
-                var devidePreviousValueIndex = -2;
-                var devidePreviousValue = -1;
-                var devideSeparator = 1;
-
-                if (divisionIndex > -1)
-                {
-
-                    while (devidePreviousValueIndex < (divisionIndex - 1))
-                    {
-                        devidePreviousValue++;
-
-                        var number = values[devidePreviousValue].ToString().Length;
-                        devidePreviousValueIndex = devidePreviousValueIndex + number + devideSeparator;
-
-                    }
-                    int a = int.Parse(values[devidePreviousValue]);
-                    int b = int.Parse(values[devidePreviousValue+1]);
-                    var division = a / b;
-
-                }
-
-                var additionPreviousValueIndex = -2;
-                var additionPreviousValue = -1;
-                var additionSeparator = 1;
-
-                if (additionIndex > -1)
-                {
-
-                    while (additionPreviousValueIndex < (additionIndex - 1))
-                    {
-                        additionPreviousValue++;
-
-                        var number = values[additionPreviousValue].ToString().Length;
-                        additionPreviousValueIndex = additionPreviousValueIndex + number + additionSeparator;
-
-                    }
-                    int a = int.Parse(values[additionPreviousValue]);
-                    int b = int.Parse(values[additionPreviousValue + 1]);
-                    var addition = a + b;
-
-                }
-
-
-                var subtractionPreviousValueIndex = -2;
-                var subtractionPreviousValue = -1;
-                var subtractionSeparator = 1;
-
-                if (subtractionIndex > -1)
-                {
-
-                    while (subtractionPreviousValueIndex < (subtractionIndex - 1))
-                    {
-                        subtractionPreviousValue++;
-
-                        var number = values[subtractionPreviousValue].ToString().Length;
-                        subtractionPreviousValueIndex = subtractionPreviousValueIndex + number + subtractionSeparator;
-
-                    }
-                    int a = int.Parse(values[subtractionPreviousValue]);
-                    int b = int.Parse(values[subtractionPreviousValue + 1]);
-                    var substraction = a - b;
-
-                }
-
-
-
+                CalculateExpressionInBrackets( withoutBrakets, values, valuesAmount, "*");
             }
         }
+
+
+
+        private static void CalculateExpressionInBrackets(string withoutBrakets, string[] values, int valuesAmount, string sign)
+        {
+            var index = withoutBrakets.IndexOf(sign);
+            var PreviousValueIndex = -2;
+            var PreviousValue = -1;
+            var Separator = 1;
+
+            if (index > -1)
+            {
+
+                while (PreviousValueIndex < (index - 1))
+                {
+
+                    PreviousValue++;
+
+                    var number = values[PreviousValue].ToString().Length;
+                    PreviousValueIndex = PreviousValueIndex + number + Separator;
+
+                }
+                int a = int.Parse(values[PreviousValue]);
+                int b = int.Parse(values[PreviousValue + 1]);
+                var result = a * b;
+
+                withoutBrakets = withoutBrakets.Replace(a.ToString() + '*' + b.ToString(), result.ToString());
+                values = withoutBrakets.Split(operators);
+            }
+
+            var divisionIndex = withoutBrakets.IndexOf('/');
+            var devidePreviousValueIndex = -2;
+            var devidePreviousValue = -1;
+            var devideSeparator = 1;
+
+            if (divisionIndex > -1)
+            {
+
+                while (devidePreviousValueIndex < (divisionIndex - 1))
+                {
+                    devidePreviousValue++;
+
+                    var number = values[devidePreviousValue].ToString().Length;
+                    devidePreviousValueIndex = devidePreviousValueIndex + number + devideSeparator;
+
+                }
+                int a = int.Parse(values[devidePreviousValue]);
+                int b = int.Parse(values[devidePreviousValue + 1]);
+                var division = a / b;
+
+                withoutBrakets = withoutBrakets.Replace(a.ToString() + '/' + b.ToString(), division.ToString());
+                values = withoutBrakets.Split(operators);
+            }
+
+            var additionIndex = withoutBrakets.IndexOf('+');
+            var additionPreviousValueIndex = -2;
+            var additionPreviousValue = -1;
+            var additionSeparator = 1;
+
+            if (additionIndex > -1)
+            {
+
+                while (additionPreviousValueIndex < (additionIndex - 1))
+                {
+                    additionPreviousValue++;
+
+                    var number = values[additionPreviousValue].ToString().Length;
+                    additionPreviousValueIndex = additionPreviousValueIndex + number + additionSeparator;
+
+                }
+                int a = int.Parse(values[additionPreviousValue]);
+                int b = int.Parse(values[additionPreviousValue + 1]);
+                var addition = a + b;
+
+                withoutBrakets = withoutBrakets.Replace(a.ToString() + '+' + b.ToString(), addition.ToString());
+                values = withoutBrakets.Split(operators);
+            }
+
+            var subtractionIndex = withoutBrakets.IndexOf('-');
+            var subtractionPreviousValueIndex = -2;
+            var subtractionPreviousValue = -1;
+            var subtractionSeparator = 1;
+
+            if (subtractionIndex > -1)
+            {
+
+                while (subtractionPreviousValueIndex < (subtractionIndex - 1))
+                {
+                    subtractionPreviousValue++;
+
+                    var number = values[subtractionPreviousValue].ToString().Length;
+                    subtractionPreviousValueIndex = subtractionPreviousValueIndex + number + subtractionSeparator;
+
+                }
+                int a = int.Parse(values[subtractionPreviousValue]);
+                int b = int.Parse(values[subtractionPreviousValue + 1]);
+                var substraction = a - b;
+
+                withoutBrakets = withoutBrakets.Replace(a.ToString() + '-' + b.ToString(), substraction.ToString());
+                values = withoutBrakets.Split(operators);
+            }
+        }
+
+
     }
+
+
 }
