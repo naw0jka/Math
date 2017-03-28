@@ -12,8 +12,11 @@ namespace Math
         Sentence S = new Sentence();
 
 
-       // Sentence.Start();
-       //Console.Read()
+        //Sentence.Start();
+        //Console.Read()
+        
+        
+
 
         static string expression = "2+(3*(2 + 4 * 2 - 28/2))+8"; //Console.Read()
         static char[] operators = { '+', '-', '*', '/' };
@@ -22,7 +25,7 @@ namespace Math
         {
             expression = expression.Replace(" ", "");
 
-            if (expression.Any(e => !operators.Contains(e) || !char.IsDigit(e)))
+            if (expression.Any(e => !operators.Contains(e) && !char.IsDigit(e)))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You miss the key. Try one more time");
