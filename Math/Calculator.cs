@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Math
 {
     class Calculator
     {
-        public static void CalculatorInBrackets(string expression, char[] operators)
+        public static void SeparateAndCountBacket(string expression, char[] operators)
         {
             var endIndex = expression.IndexOf(")");
             if (endIndex > -1)
@@ -34,16 +36,24 @@ namespace Math
                 var withoutBrakets = inBrakets.Trim('(', ')');
                 var values = withoutBrakets.Split(operators);
                 var valuesAmount = values.Length;
+                
+                foreach (char c in operators)
+                {
+                    withoutBrakets = CalculateExpressionInBracket(withoutBrakets, values, valuesAmount, operators, c.ToString());
+                    values = withoutBrakets.Split(operators);
+                }
 
-                CalculateExpressionInBrackets(withoutBrakets, values, valuesAmount, operators, "*");
+                // expression = expression.Replace()
+
+
             }
         }
 
 
 
-        private static void CalculateExpressionInBrackets(string withoutBrakets, string[] values, int valuesAmount, char[] operators, string sign)
+        private static string CalculateExpressionInBracket(string withoutBraketsParametr, string[] values, int valuesAmount, char[] operators, string sign)
         {
-            var index = withoutBrakets.IndexOf(sign);
+            var index = withoutBraketsParametr.IndexOf(sign);
             var PreviousValueIndex = -2;
             var PreviousValue = -1;
             var Separator = 1;
@@ -62,115 +72,43 @@ namespace Math
                 }
                 int a = int.Parse(values[PreviousValue]);
                 int b = int.Parse(values[PreviousValue + 1]);
-                int result = 20;
-                CauntExpressionWithTwoNumbers(a,b,sign);
-
-                withoutBrakets = withoutBrakets.Replace(a.ToString() + '*' + b.ToString(), result.ToString());
-                values = withoutBrakets.Split(operators);
+                int result = CauntExpressionWithTwoNumbers(a, b, sign);
+                string oldResult = a.ToString() + sign + b.ToString();
+                return withoutBraketsParametr = withoutBraketsParametr.Replace(oldResult, result.ToString());
             }
-
-
-        }
-
-        private static void CauntExpressionWithTwoNumbers(int a, int b, string sign)
-        {
-            int result;
-            switch(sign)
+            else
             {
-                case "*":
-                    result = a * b;
-                    break;
-                case "/":
-                    result = a / b;
-                    break;
-                case "+":
-                    result = a + b;
-                    break;
-                case "-":
-                    result = a - b;
-                    break;
+                return withoutBraketsParametr;
             }
 
         }
 
-
-
-
-
-
-
-
-            //var divisionIndex = withoutBrakets.IndexOf('/');
-            //var devidePreviousValueIndex = -2;
-            //var devidePreviousValue = -1;
-            //var devideSeparator = 1;
-
-            //if (divisionIndex > -1)
-            //{
-
-            //    while (devidePreviousValueIndex < (divisionIndex - 1))
-            //    {
-            //        devidePreviousValue++;
-
-            //        var number = values[devidePreviousValue].ToString().Length;
-            //        devidePreviousValueIndex = devidePreviousValueIndex + number + devideSeparator;
-
-            //    }
-            //    int a = int.Parse(values[devidePreviousValue]);
-            //    int b = int.Parse(values[devidePreviousValue + 1]);
-            //    var division = a / b;
-
-            //    withoutBrakets = withoutBrakets.Replace(a.ToString() + '/' + b.ToString(), division.ToString());
-            //    values = withoutBrakets.Split(operators);
-            //}
-
-            //var additionIndex = withoutBrakets.IndexOf('+');
-            //var additionPreviousValueIndex = -2;
-            //var additionPreviousValue = -1;
-            //var additionSeparator = 1;
-
-            //if (additionIndex > -1)
-            //{
-
-            //    while (additionPreviousValueIndex < (additionIndex - 1))
-            //    {
-            //        additionPreviousValue++;
-
-            //        var number = values[additionPreviousValue].ToString().Length;
-            //        additionPreviousValueIndex = additionPreviousValueIndex + number + additionSeparator;
-
-            //    }
-            //    int a = int.Parse(values[additionPreviousValue]);
-            //    int b = int.Parse(values[additionPreviousValue + 1]);
-            //    var addition = a + b;
-
-            //    withoutBrakets = withoutBrakets.Replace(a.ToString() + '+' + b.ToString(), addition.ToString());
-            //    values = withoutBrakets.Split(operators);
-            //}
-
-            //var subtractionIndex = withoutBrakets.IndexOf('-');
-            //var subtractionPreviousValueIndex = -2;
-            //var subtractionPreviousValue = -1;
-            //var subtractionSeparator = 1;
-
-            //if (subtractionIndex > -1)
-            //{
-
-            //    while (subtractionPreviousValueIndex < (subtractionIndex - 1))
-            //    {
-            //        subtractionPreviousValue++;
-
-            //        var number = values[subtractionPreviousValue].ToString().Length;
-            //        subtractionPreviousValueIndex = subtractionPreviousValueIndex + number + subtractionSeparator;
-
-            //    }
-            //    int a = int.Parse(values[subtractionPreviousValue]);
-            //    int b = int.Parse(values[subtractionPreviousValue + 1]);
-            //    var substraction = a - b;
-
-            //    withoutBrakets = withoutBrakets.Replace(a.ToString() + '-' + b.ToString(), substraction.ToString());
-            //    values = withoutBrakets.Split(operators);
-            //}
-        
+        private static int CauntExpressionWithTwoNumbers(int a, int b, string sign)
+        {
+            try
+            {
+                switch (sign)
+                {
+                    case "*":
+                        return a * b;
+                    case "/":
+                        return a / b;
+                    case "+":
+                        return a + b;
+                    case "-":
+                        return a - b;
+                    default:
+                        var e = "CauntExpressionWithTwoNumbers failed";
+                        LogFile.SaveInFile(e);
+                        throw new Exception(e);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("{0} Exception caught.", e);
+                LogFile.SaveInFile(e.ToString());
+                throw;
+            }
+      }        
     }
 }

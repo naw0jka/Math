@@ -9,34 +9,32 @@ namespace Math
     public class Program
     {
         Calculator C = new Calculator();
-        Sentence S = new Sentence();
+  
 
-
-        //Sentence.Start();
-        //Console.Read()
-        
-        
-
-
-        static string expression = "2+(3*(2 + 4 * 2 - 28/2))+8"; //Console.Read()
-        static char[] operators = { '+', '-', '*', '/' };
+  
+        static string expression = "2+(3*(2 + 4 * 2 - 8/2))+8";
+        static char[] operators = { '*', '/', '+', '-'};
+        static char[] acceptableCharacters = {'0','1','2','3','4','5','6','7','8','9','(',')'}; //what with coma?
 
         static void Main(string[] args)
         {
-            expression = expression.Replace(" ", "");
+            LogFile.CreateFile();
+            Sentence.Start();
+            var ciag = Console.ReadKey();
 
-            if (expression.Any(e => !operators.Contains(e) && !char.IsDigit(e)))
+            expression = expression.Replace(" ", "");
+            expression = expression.TrimEnd('=');
+
+            if (expression.Any(e => !operators.Contains(e) && !acceptableCharacters.Contains(e)))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("You miss the key. Try one more time");
-                Console.ResetColor();
+                Sentence.AlertWrongKey(ConsoleColor.Red);
             }
             else
             {
-                Calculator.CalculatorInBrackets(expression, operators);
+                Calculator.SeparateAndCountBacket(expression, operators);
             }
 
-
+            Console.WriteLine(expression.ToString());
             Console.ReadKey();
 
 

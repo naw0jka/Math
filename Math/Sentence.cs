@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Math
 {
-    public class Sentence
+    public static class Sentence
     {
-        Library L = new Library();
+        
 
-        public void Start()
+        public static void Start()
             {
                 Console.WriteLine(Library.greetings);
                 Console.WriteLine(Library.question);
@@ -22,8 +22,15 @@ namespace Math
                 Console.WriteLine(Library.exit);
 
             }
+
+        public static void AlertWrongKey(ConsoleColor color = ConsoleColor.White)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine("You miss the key. Try one more time");
+            Console.ResetColor();
+        } 
            
-        public void end()
+        public static void End()
             {
                 Console.WriteLine(Library.exit);
             }

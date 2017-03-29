@@ -22,7 +22,7 @@ namespace Math {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Library {
+    internal class Library {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Math {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Math.Library", typeof(Library).Assembly);
@@ -51,7 +51,7 @@ namespace Math {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to If you want to finish press &apos;escape&apos;.
         /// </summary>
-        public static string exit {
+        internal static string exit {
             get {
                 return ResourceManager.GetString("exit", resourceCulture);
             }
@@ -72,16 +72,16 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to If you want to finish do not play games just push &apos;escape&apos;.
         /// </summary>
-        public static string exitHint {
+        internal static string exitHint {
             get {
                 return ResourceManager.GetString("exitHint", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What&apos;s up?.
+        ///   Looks up a localized string similar to What have you been up to?.
         /// </summary>
-        public static string greetings {
+        internal static string greetings {
             get {
                 return ResourceManager.GetString("greetings", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to To order lunch call 58 558 42 45. Ors sponsor Da Grasso pizzeria made the best pizza on these side of town. Do not hesitate call now..
         /// </summary>
-        public static string lunch {
+        internal static string lunch {
             get {
                 return ResourceManager.GetString("lunch", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to - If you want to add numbers press &apos;A&apos;.
         /// </summary>
-        public static string optionAdding {
+        internal static string optionAdding {
             get {
                 return ResourceManager.GetString("optionAdding", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to - If you want to divide numbers press &apos;D&apos;.
         /// </summary>
-        public static string optionDividing {
+        internal static string optionDividing {
             get {
                 return ResourceManager.GetString("optionDividing", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to You miss the key....
         /// </summary>
-        public static string optionException1 {
+        internal static string optionException1 {
             get {
                 return ResourceManager.GetString("optionException1", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to You did it again....
         /// </summary>
-        public static string optionException2 {
+        internal static string optionException2 {
             get {
                 return ResourceManager.GetString("optionException2", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to - If you want to order lunch press &apos;X&apos;.
         /// </summary>
-        public static string optionLunch {
+        internal static string optionLunch {
             get {
                 return ResourceManager.GetString("optionLunch", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to - If you want to multiply numbers press &apos;M&apos;.
         /// </summary>
-        public static string optionMultiplication {
+        internal static string optionMultiplication {
             get {
                 return ResourceManager.GetString("optionMultiplication", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to - If you want to subtract numbers from each other press &apos;S&apos;.
         /// </summary>
-        public static string optionSubstraction {
+        internal static string optionSubstraction {
             get {
                 return ResourceManager.GetString("optionSubstraction", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Math {
         /// <summary>
         ///   Looks up a localized string similar to What do you want to do?.
         /// </summary>
-        public static string question {
+        internal static string question {
             get {
                 return ResourceManager.GetString("question", resourceCulture);
             }
