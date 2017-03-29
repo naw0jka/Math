@@ -14,11 +14,11 @@ namespace Math
         private static string logPath()
         {
             var Today = DateTime.Now.ToString("yyyyMMdd");
-            return @"C:\Users\nobidzinska\Desktop\Math\" + Today + " Log.txt";
+            return @"Desktop\Math\" + Today + " Log.txt";
         }
         
         
-            public static void CreateFile()
+            private static void CreateFile()
         {
             var path = logPath();
             

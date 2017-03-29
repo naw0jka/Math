@@ -34,6 +34,12 @@ namespace Math
             {
                 Console.WriteLine(Library.exit);
             }
-        
+        public static void Lunch()
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine(Library.lunch);
+            Console.ResetColor();
+        }
     }
 }

@@ -50,6 +50,8 @@
       <DependentUpon>Library.resx</DependentUpon>
     </Compile>
     <Compile Include="LogFile.cs" />
+    <Compile Include="OneOperatorExpression.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sentence.cs" />

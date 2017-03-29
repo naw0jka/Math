@@ -98,7 +98,7 @@ namespace Math
                     case "-":
                         return a - b;
                     default:
-                        var e = "CauntExpressionWithTwoNumbers failed";
+                        var e = "Couldn't process operation: " + sign;
                         LogFile.SaveInFile(e);
                         throw new Exception(e);
                 }
