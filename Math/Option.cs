@@ -8,8 +8,7 @@ namespace Math
         {
             RunSelected(Console.ReadKey().Key);
         }
-
-
+        
         public static void RunSelected(ConsoleKey key)
         {
             switch (key)
@@ -27,6 +26,7 @@ namespace Math
                     break;
                 default:
                     Sentence.AlertWrongKey(ConsoleColor.Blue);
+                    Select();
                     break;
             }
         }

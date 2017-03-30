@@ -127,19 +127,16 @@
     <value>What have you been up to?</value>
   </data>
   <data name="lunch" xml:space="preserve">
-    <value>To order lunch call 58 558 42 45. Ors sponsor Da Grasso pizzeria made the best pizza on these side of town. Do not hesitate call now.</value>
+    <value>To order lunch call 58 558 42 45. Our sponsor Da Grasso pizzeria made the best pizza on these side of town. Do not hesitate! Call now!</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>What is your name?</value>
   </data>
   <data name="optionAdding" xml:space="preserve">
     <value>- If you want to add numbers press 'A'</value>
   </data>
   <data name="optionDividing" xml:space="preserve">
     <value>- If you want to divide numbers press 'D'</value>
-  </data>
-  <data name="optionException1" xml:space="preserve">
-    <value>You miss the key...</value>
-  </data>
-  <data name="optionException2" xml:space="preserve">
-    <value>You did it again...</value>
   </data>
   <data name="optionLunch" xml:space="preserve">
     <value>- If you want to order lunch press 'X'</value>
@@ -152,5 +149,11 @@
   </data>
   <data name="question" xml:space="preserve">
     <value>What do you want to do?</value>
+  </data>
+  <data name="wrongKey1" xml:space="preserve">
+    <value>You miss the key... Please try one more time.</value>
+  </data>
+  <data name="wrongKey2" xml:space="preserve">
+    <value>You did it again... </value>
   </data>
 </root>

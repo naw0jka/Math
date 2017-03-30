@@ -5,13 +5,16 @@ namespace Math
 {
     public class Program
     {
+        static string Name;
+
         static string expression = "2+(3*(2 + 4 * 2 - 8/2))+8";
         static char[] operators = { '*', '/', '+', '-' };
         static char[] acceptableCharacters = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(', ')' }; //what with coma?
 
         static void Main(string[] args)
         {
-            Sentence.Start();
+            Name = Sentence.Start();
+            Sentence.Menu();
             Option.Select();
             expression = expression.Replace(" ", "");
             expression = expression.TrimEnd('=');

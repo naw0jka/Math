@@ -4,22 +4,32 @@ namespace Math
 {
     public static class Sentence
     {
-        public static void Start()
+        private static string newLine = "\r\n";
+
+        public static string Start()
         {
-            Console.WriteLine(Library.greetings);
-            Console.WriteLine(Library.question);
-            Console.WriteLine(Library.optionAdding);
-            Console.WriteLine(Library.optionSubstraction);
-            Console.WriteLine(Library.optionMultiplication);
-            Console.WriteLine(Library.optionDividing);
-            Console.WriteLine(Library.optionLunch);
-            Console.WriteLine(Library.exit);
+            Console.WriteLine(Library.greetings + newLine + Library.name + newLine);
+            return Console.ReadLine();
+        }
+        public static void Menu()
+        {
+            string[] questions= {
+                Library.optionAdding,
+                Library.optionSubstraction,
+                Library.optionMultiplication,
+                Library.optionDividing,
+                Library.optionLunch,
+                Library.exit, ""};
+            foreach (string i in questions)
+            {
+                Console.WriteLine(i);
+            }
         }
 
         public static void AlertWrongKey(ConsoleColor color = ConsoleColor.White)
         {
             Console.ForegroundColor = color;
-            Console.WriteLine("You miss the key. Try one more time");
+            Console.WriteLine(Library.wrongKey1);
             Console.ResetColor();
         }
 
@@ -29,9 +39,9 @@ namespace Math
         }
         public static void Lunch()
         {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine(Library.lunch);
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine(newLine + newLine + Library.lunch + newLine);
             Console.ResetColor();
         }
     }

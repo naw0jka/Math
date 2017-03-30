@@ -88,11 +88,20 @@ namespace Math {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To order lunch call 58 558 42 45. Ors sponsor Da Grasso pizzeria made the best pizza on these side of town. Do not hesitate call now..
+        ///   Looks up a localized string similar to To order lunch call 58 558 42 45. Our sponsor Da Grasso pizzeria made the best pizza on these side of town. Do not hesitate! Call now!.
         /// </summary>
         internal static string lunch {
             get {
                 return ResourceManager.GetString("lunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is your name?.
+        /// </summary>
+        internal static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
             }
         }
         
@@ -111,24 +120,6 @@ namespace Math {
         internal static string optionDividing {
             get {
                 return ResourceManager.GetString("optionDividing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You miss the key....
-        /// </summary>
-        internal static string optionException1 {
-            get {
-                return ResourceManager.GetString("optionException1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You did it again....
-        /// </summary>
-        internal static string optionException2 {
-            get {
-                return ResourceManager.GetString("optionException2", resourceCulture);
             }
         }
         
@@ -165,6 +156,24 @@ namespace Math {
         internal static string question {
             get {
                 return ResourceManager.GetString("question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You miss the key... Please try one more time..
+        /// </summary>
+        internal static string wrongKey1 {
+            get {
+                return ResourceManager.GetString("wrongKey1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You did it again... .
+        /// </summary>
+        internal static string wrongKey2 {
+            get {
+                return ResourceManager.GetString("wrongKey2", resourceCulture);
             }
         }
     }
