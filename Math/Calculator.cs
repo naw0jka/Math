@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
 namespace Math
 {
     class Calculator
@@ -48,8 +41,6 @@ namespace Math
 
             }
         }
-
-
 
         private static string CalculateExpressionInBracket(string withoutBraketsParametr, string[] values, int valuesAmount, char[] operators, string sign)
         {

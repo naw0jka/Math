@@ -1,28 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Math
 {
-    public enum Options { A = 0, S = 1, M = 2, D = 3, X = 4 };
-
     public static class Option
     {
-        public static void Select(Options option)
+        public static void Select()
         {
-            switch (option)
+            RunSelected(Console.ReadKey().Key);
+        }
+
+
+        public static void RunSelected(ConsoleKey key)
+        {
+            switch (key)
             {
-                case Options.A:
-
-                case Options.S:
-
-                case Options.M:
-
-                case Options.D:
-
-                case Options.X:
+                case ConsoleKey.A:
+                    break;
+                case ConsoleKey.S:
+                    break;
+                case ConsoleKey.M:
+                    break;
+                case ConsoleKey.D:
+                    break;
+                case ConsoleKey.X:
                     Sentence.Lunch();
                     break;
                 default:
@@ -31,5 +31,4 @@ namespace Math
             }
         }
     }
-
 }
