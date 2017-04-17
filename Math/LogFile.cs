@@ -14,17 +14,36 @@ namespace Math
         private static string logPath()
         {
             var Today = DateTime.Now.ToString("yyyyMMdd");
-            return @"Desktop\Math\" + Today + " Log.txt";
+            var path = @"Desktop\Math\";
+            var fileName  = Today + " Log.txt";
+            var parentpath = GetParent(path, fileName);
+            
+            
+            //var parentpath = System.IO.Path.Combine(path, @"..\..\..\..\..\..\..");
+            //var parentpath = System.IO.Directory.GetParent(System.IO.Directory.GetParent(path).ToString()).ToString();
+            return parentpath;
+
         }
-        
-        
-            private static void CreateFile()
+
+        private static string GetParent(string parentName, string FileName)
+        {
+            var dir = new DirectoryInfo(parentName+FileName);
+            var dirName = dir.Parent.Name;
+            while (dirName != parentName)
+            {
+                dir = dir.Parent;
+            }
+            return dir.Parent.FullName + "\\" + FileName;
+        }
+
+
+        private static void CreateFile()
         {
             var path = logPath();
             
             if (!File.Exists(path))
             {
-                File.Create(path).Dispose();
+               File.Create(path).Dispose();
             }
 
         }

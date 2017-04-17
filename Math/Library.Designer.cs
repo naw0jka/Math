@@ -61,6 +61,15 @@ namespace Math {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to - If you want to calculate an arithmetic expression press &apos;E&apos;.
+        /// </summary>
+        internal static string arithmeticExpression {
+            get {
+                return ResourceManager.GetString("arithmeticExpression", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If you want to finish press &apos;escape&apos;.
         /// </summary>
         internal static string exit {
@@ -102,6 +111,24 @@ namespace Math {
         internal static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You miss the key. You can use only numbers and operators. Please try one more time..
+        /// </summary>
+        internal static string oneOperatorAlert {
+            get {
+                return ResourceManager.GetString("oneOperatorAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please write you numbers and click enter.
+        /// </summary>
+        internal static string oneOperatorInstruction {
+            get {
+                return ResourceManager.GetString("oneOperatorInstruction", resourceCulture);
             }
         }
         
@@ -156,6 +183,15 @@ namespace Math {
         internal static string question {
             get {
                 return ResourceManager.GetString("question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What would you like to do?.
+        /// </summary>
+        internal static string startQuestion {
+            get {
+                return ResourceManager.GetString("startQuestion", resourceCulture);
             }
         }
         

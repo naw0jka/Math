@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="arithmeticExpression" xml:space="preserve">
+    <value>- If you want to calculate an arithmetic expression press 'E'</value>
+  </data>
   <data name="exit" xml:space="preserve">
     <value>If you want to finish press 'escape'</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="name" xml:space="preserve">
     <value>What is your name?</value>
+  </data>
+  <data name="oneOperatorAlert" xml:space="preserve">
+    <value>You miss the key. You can use only numbers and operators. Please try one more time.</value>
+  </data>
+  <data name="oneOperatorInstruction" xml:space="preserve">
+    <value>Please write you numbers and click enter</value>
   </data>
   <data name="optionAdding" xml:space="preserve">
     <value>- If you want to add numbers press 'A'</value>
@@ -149,6 +158,9 @@
   </data>
   <data name="question" xml:space="preserve">
     <value>What do you want to do?</value>
+  </data>
+  <data name="startQuestion" xml:space="preserve">
+    <value>What would you like to do?</value>
   </data>
   <data name="wrongKey1" xml:space="preserve">
     <value>You miss the key... Please try one more time.</value>
